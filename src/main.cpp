@@ -14,13 +14,18 @@ int touchState = 0;
 void setup() {
 
     Serial.begin(9600);
-
-    // STEP 3: Configure touch sensor pin as INPUT
     pinMode(TOUCH_PIN, INPUT);
 
-    // STEP 3: Print initialization message
     Serial.println("=== TTP223 Touch Detection System Initialized ===");
 }
 
 void loop() {
+
+    // STEP 4: Read digital value from touch sensor
+    touchState = digitalRead(TOUCH_PIN);
+
+    Serial.print("Touch State: ");
+    Serial.println(touchState);
+
+    delay(200);
 }
